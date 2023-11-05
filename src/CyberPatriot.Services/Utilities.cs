@@ -28,12 +28,35 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CyberPatriot.Models;
 
 namespace CyberPatriot.Services
 {
     internal static class Utilities
     {
-        public static bool TryParseEnumSpaceless<TEnum>(string value, out TEnum @enum) where TEnum : struct => Enum.TryParse<TEnum>(value.Replace(" ", string.Empty), out @enum);
+        public static bool TryParseDivision(string value, out Division aenum)
+        {
+            Console.Out.WriteLine(value);
+            if (value == null)
+            {
+                aenum = default;
+                return false;
+            }
+
+            var asDivs = new List<string> { "AFJROTC", "AFROTC", "CAP", "MCJROTC", "NJROTC", "USNSCC" };
+
+            if (asDivs.Contains(value))
+            {
+                Console.Out.WriteLine("^^ i'm AS");
+                aenum = Division.AllService;
+                return true;
+            }
+            
+            
+            return Enum.TryParse(value.Replace(" ", string.Empty), out aenum);
+        }
+
+        
         public static TimeSpan ParseHourMinuteSecondTimespan(string hhmmss)
         {
             // works nicely in normal cases but we put it here in case it doesn't

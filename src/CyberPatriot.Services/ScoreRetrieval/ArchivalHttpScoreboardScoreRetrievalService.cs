@@ -57,7 +57,7 @@ namespace CyberPatriot.Services.ScoreRetrieval
             };
             summary.Category = _categoryProvider?.GetCategory(summary.TeamId);
             summary.Location = dataEntries[1];
-            if (Utilities.TryParseEnumSpaceless<Division>(dataEntries[2], out Division division))
+            if (Utilities.TryParseDivision(dataEntries[2], out Division division))
             {
                 summary.Division = division;
             }
@@ -80,7 +80,7 @@ namespace CyberPatriot.Services.ScoreRetrieval
             // ID, Division (labeled location, their bug), Location (labeled division, their bug), tier, scored img, play time, score time, current score, warn
             summary.TeamId = TeamId.Parse(dataEntries[0]);
             summary.Category = _categoryProvider?.GetCategory(summary.TeamId);
-            if (Utilities.TryParseEnumSpaceless<Division>(dataEntries[1], out Division division))
+            if (Utilities.TryParseDivision(dataEntries[1], out Division division))
             {
                 summary.Division = division;
             }

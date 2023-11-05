@@ -192,7 +192,7 @@ namespace CyberPatriot.Services.ScoreRetrieval
             };
             summary.Category = _categoryProvider?.GetCategory(summary.TeamId);
             summary.Location = dataEntries[2];
-            if (Utilities.TryParseEnumSpaceless<Division>(dataEntries[3], out Division division))
+            if (Utilities.TryParseDivision(dataEntries[3], out Division division))
             {
                 summary.Division = division;
             }
@@ -231,7 +231,7 @@ namespace CyberPatriot.Services.ScoreRetrieval
             summary.Category = _categoryProvider?.GetCategory(summary.TeamId);
             // tier and division
             summary.Location = dataEntries[1];
-            if (Utilities.TryParseEnumSpaceless<Division>(dataEntries[2], out Division division))
+            if (Utilities.TryParseDivision(dataEntries[2], out Division division))
             {
                 summary.Division = division;
             }

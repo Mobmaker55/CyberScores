@@ -53,6 +53,7 @@ namespace CyberPatriot.DiscordBot.Modules
         [Command("team"), Alias("getteam"), Summary("Gets score information for a given team.")]
         public async Task GetTeamAsync(TeamId teamId)
         {
+            await Console.Out.WriteLineAsync("Team command called =========================");
             using (Context.Channel.EnterTypingState())
             {
                 ScoreboardDetails teamScore = await ScoreRetrievalService.GetDetailsAsync(teamId).ConfigureAwait(false);

@@ -272,7 +272,7 @@ namespace CyberPatriot.Services.ScoreRetrieval
                             {
                                 teamInfo.Summary.Category = CyberPatriot.Models.Serialization.ServiceCategoryExtensions.ParseAliasName(data[catInd]);
                             }
-                            if (divInd >= 0 && Utilities.TryParseEnumSpaceless(data[divInd], out Division division))
+                            if (divInd >= 0 && Utilities.TryParseDivision(data[divInd], out Division division))
                             {
                                 teamInfo.Summary.Division = division;
                             }
